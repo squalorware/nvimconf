@@ -26,7 +26,7 @@ M.focusedBorder = palette.bright.orange
 M.emphasizedBorder = palette.orange
 
 M.syntaxError = palette.bright.red
-M.syntaxFunction = palette.cyan
+M.syntaxFunction = palette.bright.cyan
 M.warningText = palette.grey.yellow
 M.syntaxKeyword = palette.bright.orange
 M.linkText = palette.bright.violet
@@ -34,7 +34,7 @@ M.stringText = palette.bright.green
 M.warningEmphasis = palette.yellow
 M.successText = palette.green
 M.errorText = palette.red
-M.specialKeyword = palette.magenta
+M.specialKeyword = palette.bright.magenta
 M.commentText = palette.green
 M.syntaxOperator = palette.bright.yellow
 M.foregroundEmphasis = palette.bright.black
