@@ -1,8 +1,8 @@
 -- Ported from nvim-colorscheme-template by datsfilipe
 -- https://github.com/datsfilipe/nvim-colorscheme-template/blob/main/lua/my-theme/init.lua
 
-local bufferline = require("guizi.integrations.bufferline")
-local cmp = require("guizi.integrations.cmp")
+local bufferline = require("guizi.integrations.bufferline_theme")
+local cmp = require("guizi.integrations.cmp_theme")
 local colorscheme = require("guizi.colorscheme")
 local palette = require("guizi.palette")
 local config = require("guizi.config")
