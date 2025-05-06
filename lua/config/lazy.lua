@@ -29,7 +29,7 @@ require("lazy").setup({
         enabled = true
     },
     install = {
-        colorscheme = { "ron" }
+        colorscheme = require("guizi").colorscheme()
     },
     spec = {
         {
@@ -76,5 +76,33 @@ require("lazy").setup({
         {
             "hiphish/rainbow-delimiters.nvim",
         },
+        {
+            "akinsho/toggleterm.nvim",
+            tag = "v2.9.0",
+            config = true,
+        },
+        {
+            "VonHeikemen/lsp-zero.nvim",
+            branch = "v3.x",
+        },
+        { "neovim/nvim-lspconfig" },
+        {
+            "williamboman/mason.nvim",
+            opts = {
+                registries = {
+                    "github:mason-org/mason-registry",
+                },
+            },
+        },
+        { "williamboman/mason-lspconfig.nvim" },
+        { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+        {
+            "folke/neodev.nvim",
+        },
+        { "hrsh7th/nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-buffer" },
+        { "hrsh7th/cmp-path" },
+        { "hrsh7th/cmp-nvim-lua" },
     }
 })

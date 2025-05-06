@@ -1,7 +1,90 @@
 local lualine = require("lualine")
+local palette = require("guizi.palette")
 local pl_strings = require("plenary.strings")
 
-local color_scheme = require("config.colors")
+
+local editor_mode = {
+    n = {
+        bg = palette.bright.orange,
+        fg = palette.black
+    },
+    i = {
+        bg = palette.cyan,
+        fg = palette.black
+    },
+    v = {
+        bg = palette.bright.yellow,
+        fg = palette.black
+    },
+    [""] = {
+        bg = palette.bright.blue,
+        fg = palette.black
+    },
+    V = {
+        bg = palette.blue,
+        fg = palette.white
+    },
+    c = {
+        bg = palette.magenta,
+        fg = palette.white
+    },
+    no = {
+        bg = palette.red,
+        fg = palette.white
+    },
+    s = {
+        bg = palette.cyan,
+        fg = palette.black
+    },
+    S = {
+        bg = palette.bright.cyan,
+        fg = palette.black
+    },
+    [""] = {
+        bg = palette.bright.cyan,
+        fg = palette.bright.black
+    },
+    ic = {
+        bg = palette.bright.yellow,
+        fg = palette.black
+    },
+    R = {
+        bg = palette.violet,
+        fg = palette.white
+    },
+    Rv = {
+        bg = palette.bright.violet,
+        fg = palette.bright.white
+    },
+    cv = {
+        bg = palette.red,
+        fg = palette.white
+    },
+    ce = {
+        bg = palette.bright.red,
+        fg = palette.bright.white
+    },
+    r = {
+        bg = palette.cyan,
+        fg = palette.black
+    },
+    rm = {
+        bg = palette.cyan,
+        fg = palette.black
+    },
+    ["r?"] = {
+        bg = palette.bright.cyan,
+        fg = palette.bright.black
+    },
+    ["!"] = {
+        bg = palette.red,
+        fg = palette.white
+    },
+    t = {
+        bg = palette.red,
+        fg = palette.white
+    },
+}
 
 local conditions = {
     buffer_not_empty = function ()
@@ -24,12 +107,12 @@ local config = {
         section_separators = { left = '', right = ''},
         theme = {
             normal = {
-                a = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg },
-                b = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg },
-                c = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg },
-                x = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg },
-                y = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg },
-                z = { fg = color_scheme.palette.fg, bg = color_scheme.palette.bg }
+                a = { fg = palette.white, bg = palette.black },
+                b = { fg = palette.white, bg = palette.black },
+                c = { fg = palette.white, bg = palette.black },
+                x = { fg = palette.white, bg = palette.black },
+                y = { fg = palette.white, bg = palette.black },
+                z = { fg = palette.white, bg = palette.black }
             }
         }
     },
@@ -39,13 +122,13 @@ local config = {
                 function()
                     return "▊"
                 end,
-                color = { fg = color_scheme.palette.yellow },
+                color = { fg = palette.bright.yellow },
                 padding = { left = 0, right = 1 },
             },
             {
                 "mode",
                 color = function ()
-                    return color_scheme.editor_mode[vim.fn.mode()]
+                    return editor_mode[vim.fn.mode()]
                 end,
                 padding = { left = 1, right = 1 }
             }
@@ -56,15 +139,15 @@ local config = {
                 fmt = function(str)
                     return pl_strings.truncate(str, 30)
                 end,
-                color = { fg = color_scheme.palette.yellow, bg = color_scheme.palette.darkblue, gui = "bold" },
+                color = { fg = palette.bright.yellow, bg = palette.bright.blue, gui = "bold" },
                 cond = conditions.check_git_workspace,
             },
             {
                 "diff",
                 diff_color = {
-                    added = { fg = color_scheme.palette.green },
-                    modified = { fg = color_scheme.palette.orange },
-                    removed = { fg = color_scheme.palette.red },
+                    added = { fg = palette.green },
+                    modified = { fg = palette.orange },
+                    removed = { fg = palette.red },
                 },
                 cond = conditions.check_git_workspace,
             },
@@ -74,7 +157,7 @@ local config = {
             {
                 "filename",
                 cond = conditions.buffer_not_empty,
-                color = { fg = color_scheme.palette.magenta, gui = "bold" },
+                color = { fg = palette.magenta, gui = "bold" },
                 path = 1
             },
         },
@@ -83,22 +166,23 @@ local config = {
                 "encoding",
                 fmt = string.upper,
                 cond = conditions.hide_in_width,
-                color = { fg = color_scheme.palette.fg, gui = 'bold' },
+                color = { fg = palette.white, gui = 'bold' },
             },
             {
                 "fileformat",
                 fmt = string.upper,
                 icons_enabled = false,
-                color = { fg = color_scheme.palette.yellow, gui = "bold" }
+                color = { fg = palette.bright.yellow, gui = "bold" }
             }
         },
         lualine_y = {
             {
                 "datetime",
-                style = "%d %b, %Y %H:%M:%S",
+                style = "%d %b, %Y - %H:%M:%S",
+                icons_enabled = false,
                 color = {
-                    fg = color_scheme.palette.bg,
-                    bg = color_scheme.palette.yellow,
+                    fg = palette.black,
+                    bg = palette.bright.yellow,
                     gui = "bold"
                 }
             },

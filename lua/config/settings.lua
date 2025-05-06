@@ -1,7 +1,7 @@
 vim.opt.encoding = "UTF-8"
 vim.opt.number = true
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.opt.wrap = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -21,4 +21,20 @@ vim.opt.incsearch = true
 vim.opt.isfname:append("@-@")
 
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("default")
+
+local theme = require("guizi")
+
+theme.setup({
+    theme = "dark",
+    transparent = true,
+    italics = {
+        comments = true,
+        keywords = false,
+        functions = false,
+        strings = false,
+        variables = false,
+    },
+})
+
+theme.colorscheme()
+
