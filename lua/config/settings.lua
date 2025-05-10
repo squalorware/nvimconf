@@ -24,17 +24,5 @@ vim.opt.termguicolors = true
 
 local theme = require("guizi")
 
-theme.setup({
-    theme = "dark",
-    transparent = true,
-    italics = {
-        comments = true,
-        keywords = false,
-        functions = false,
-        strings = false,
-        variables = false,
-    },
-})
-
 theme.colorscheme()
 

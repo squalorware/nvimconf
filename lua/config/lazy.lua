@@ -28,9 +28,6 @@ require("lazy").setup({
     checker = {
         enabled = true
     },
-    install = {
-        colorscheme = require("guizi").colorscheme()
-    },
     spec = {
         {
             "nvim-telescope/telescope.nvim",
@@ -74,9 +71,6 @@ require("lazy").setup({
             "https://github.com/nvim-treesitter/nvim-treesitter-context",
         },
         {
-            "hiphish/rainbow-delimiters.nvim",
-        },
-        {
             "akinsho/toggleterm.nvim",
             tag = "v2.9.0",
             config = true,
@@ -104,5 +98,19 @@ require("lazy").setup({
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-path" },
         { "hrsh7th/cmp-nvim-lua" },
+        {
+            "squalorware/nvim-guizi.lua",
+            opts = {
+                theme = "dark",
+                transparent = true,
+                italics = {
+                    comments = true,
+                    keywords = false,
+                    functions = false,
+                    strings = false,
+                    variables = false,
+                },
+            }
+        }
     }
 })
