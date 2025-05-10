@@ -25,4 +25,3 @@ vim.opt.termguicolors = true
 local theme = require("guizi")
 
 theme.colorscheme()
-

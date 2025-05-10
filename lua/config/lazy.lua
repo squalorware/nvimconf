@@ -100,17 +100,19 @@ require("lazy").setup({
         { "hrsh7th/cmp-nvim-lua" },
         {
             "squalorware/nvim-guizi.lua",
-            opts = {
-                theme = "dark",
-                transparent = true,
-                italics = {
-                    comments = true,
-                    keywords = false,
-                    functions = false,
-                    strings = false,
-                    variables = false,
-                },
-            }
+            config = function ()
+                require("guizi").setup({
+                    theme = "dark",
+                    transparent = true,
+                    italics = {
+                        comments = true,
+                        keywords = false,
+                        functions = false,
+                        strings = false,
+                        variables = false,
+                    },
+                })
+            end
         }
     }
 })
